@@ -40,6 +40,21 @@ sub register {
         }
     }
 }
+*add = *register;
+
+sub unregister {
+    my ($self, @names) = @_;
+    my $klass = ref $self;
+    unless ($klass) {
+        ($klass, $self) = ($self, $self->instance);
+    }
+
+    my $objects = $self->objects->{$klass} ||= {};
+    for my $name (@names) {
+        delete $objects->{$name};
+    }
+}
+*remove = *unregister;
 
 sub get {
     my ($self, $name) = @_;
@@ -160,6 +175,7 @@ Returns instance.
   my $container = MyContainer->instance;
 
 =head2 register(%args)
+=head2 add(%args)
 
 Register objects to container.
 
@@ -173,6 +189,13 @@ Register objects to container.
           $c->load_class('JSON')->new->utf8;
       },
   );
+
+=head2 unregister(@names)
+=head2 remove(@names)
+
+Remove registered objects by name.
+
+  MyContainer->unregister('JSON', 'LWP::UserAgent');
 
 =head2 get($name)
 
