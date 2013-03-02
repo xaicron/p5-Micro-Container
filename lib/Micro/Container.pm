@@ -175,6 +175,7 @@ Returns instance.
   my $container = MyContainer->instance;
 
 =head2 register(%args)
+
 =head2 add(%args)
 
 Register objects to container.
@@ -191,6 +192,7 @@ Register objects to container.
   );
 
 =head2 unregister(@names)
+
 =head2 remove(@names)
 
 Remove registered objects by name.
