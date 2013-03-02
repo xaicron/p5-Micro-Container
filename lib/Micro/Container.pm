@@ -167,7 +167,7 @@ Micro::Container is inheritable object container.
 Returns instance.
 
   package MyContainer;
-  parent 'Micro::Container';
+  use parent 'Micro::Container';
 
   package main;
   use MyContainer;
@@ -181,7 +181,7 @@ Returns instance.
 Register objects to container.
 
   package MyContainer;
-  parent 'Micro::Container';
+  use parent 'Micro::Container';
 
   __PACKAGE__->register(
       'LWP::UserAgent' => [ agent => 'FooBar' ],
