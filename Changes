@@ -1,5 +1,8 @@
 Revision history for Perl extension Micro::Container
 
+0.03  Sat Mar  2 19:53:59 2013
+    - fixed doc
+
 0.02  Sat Mar  2 19:48:55 2013
     - fixed pod
 
